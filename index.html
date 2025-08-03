@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+</head>
+<body>
+    <button id="darkModeToggle" class="dark-toggle">🌙</button>
+
+      <h1 class="heading-1">Registration Form</h1>
+    <form class="form">
+        <div class="fn-container gutter-small">
+            <label class="d-flex direction-column gap">
+                First Name
+                <input data-key="firstName" class="input" type="text" placeholder="Enter your first name" required autocomplete="given-name"/>
+            </label>
+            <span data-error="fn-error" class="error-message">Name must only contain alphabets</span>
+            <span class="empty-field">*Please fill out this field</span>
+        </div>
+        <div class="ln-container gutter-small">
+            <label class="d-flex direction-column gap">
+                Last Name
+                <input data-key="lastName" class="input" type="text" placeholder="Enter your last name" required autocomplete="family-name">
+            </label>
+            <span data-error="ln-error" class="error-message">Name must only contain alphabets</span>
+            <span class="empty-field">*Please fill out this field</span>
+        </div>
+        <div class="email-container gutter-small">
+            <label class="d-flex direction-column gap" style="position: relative;">
+            Email Id
+            <div style="position: relative;">
+                <input data-key="email" class="input" type="email" placeholder="name@example.com" required autocomplete="email" style="padding-right: 32px;"/>
+                <span style="position: absolute; right: 6px; top: 50%; transform: translateY(-50%); display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"></svg>
+                    <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+                </svg>
+                </span>
+            </div>
+            </label>
+            <span data-error="email-error" class="error-message">Invalid Email address</span>
+            <span class="empty-field">*Please fill out this field</span>
+        </div>
+        <div class="pwd-container gutter-small relative">
+            <label class="d-flex direction-column gap">
+                Password
+                <div class="relative">
+                    <input data-key="password" 
+                        class="input" 
+                        type="password" 
+                        placeholder="Enter your password" required autocomplete="new-password"
+                        />
+                        <button class="btn absolute right-0" >
+                            
+                            <span  class="material-icons-outlined eyeIcon">
+                                visibility_off
+                            </span>
+                        </button>
+                </div>
+            </label>
+            <ul data-error="pwd-error" class="error-message ul">
+                <li class="list">
+                    ➤ At least <strong>8 characters</strong>
+                </li>
+                <li class="list">
+                    ➤ One <strong>uppercase</strong> letter
+                </li>
+                <li class="list">
+                    ➤ One <strong>lowercase</strong> letter
+                </li>
+                <li class="list">
+                    ➤ One <strong>number</strong>
+                </li>
+                <li class="list">
+                    ➤ One <strong>special</strong> character(!@#$%^&*...)
+                </li>
+            </ul>
+            <span class="empty-field">*Please fill out this field</span>
+        </div>
+        <button class="button btn-primary" >Create Account</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
