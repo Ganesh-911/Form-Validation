@@ -7,6 +7,7 @@ const visibleBtn=document.querySelector('.eyeIcon');
 let firstName,lastName,email,password;
 let fnTarget,lnTarget,emailTarget,passwordTarget;
 let field;
+let fnFlag,lnFlag,eFlag,pwdFlag;
 const darkModeBtn = document.getElementById("darkModeToggle");
 
 darkModeBtn.addEventListener("click", () => {
@@ -62,10 +63,12 @@ submitBtn.addEventListener("click",(event)=>{
         emptyFieldMsgs[0].classList.add("d-none");
         if(!nameRegex.test(firstName)){
             fnTarget.classList.add("error");
+            fnFlag=false;
             errorMessages[0].classList.remove("d-none");
         }
         else{
             fnTarget.classList.remove("error");
+            fnFlag=true;
             errorMessages[0].classList.add("d-none");
         }
     }
@@ -75,10 +78,12 @@ submitBtn.addEventListener("click",(event)=>{
     if(lastName){
         emptyFieldMsgs[1].classList.add("d-none");
         if(!nameRegex.test(lastName)){
+            lnFlag=false;
             lnTarget.classList.add("error");
             errorMessages[1].classList.remove("d-none");
         }
         else{
+            lnFlag=true;
             lnTarget.classList.remove("error");
             errorMessages[1].classList.add("d-none");
         }
@@ -89,10 +94,12 @@ submitBtn.addEventListener("click",(event)=>{
     if(email){
         emptyFieldMsgs[2].classList.add("d-none");
         if(!emailRegex.test(email)){
+            eFlag=false;
             emailTarget.classList.add("error");
             errorMessages[2].classList.remove("d-none");
         }
         else{
+            eFlag=true;
             emailTarget.classList.remove("error");
             errorMessages[2].classList.add("d-none");
         }
@@ -104,11 +111,13 @@ submitBtn.addEventListener("click",(event)=>{
     if(password){
         emptyFieldMsgs[3].classList.add("d-none");
         if(!passwordRegex.test(password)){
+            pwdFlag=false;
             passwordTarget.classList.add("error");
             errorMessages[3].classList.remove("d-none");
         }
         
         else{
+            pwdFlag=true;
             passwordTarget.classList.remove("error");
             errorMessages[3].classList.add("d-none");
         }
@@ -116,12 +125,20 @@ submitBtn.addEventListener("click",(event)=>{
     else{
         emptyFieldMsgs[3].classList.remove("d-none");
     }
-});
+    
+if(fnFlag&&lnFlag&&eFlag&&pwdFlag){
+    fnFlag=lnFlag=eFlag=pwdFlag="";
+    window.location.href="success.html";
+    // You can also submit the form data here if needed 
 
+}
+
+
+});
 
 showPasswordBtn.addEventListener("click",(event)=>{
     event.preventDefault();
    const isVisible=passwordTarget.getAttribute("type")==="text";
    passwordTarget.setAttribute("type",isVisible?"password":"text");
-   eyeIcon.textContent=isVisible?"visibility":"visibility_off";
+   
 });
